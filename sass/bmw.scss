@@ -1,0 +1,299 @@
+// Compass
+@import "compass";
+@import "compass/css3";
+
+// Normalize
+@import "vendor/normalize";
+
+// Animation
+@import "stuff/mixins";
+
+// Animation
+@import "stuff/keyframes";
+
+
+// Font Face
+$bmwFont: "7405_-_bmwgroup-bold";
+@include fontface($bmwFont);
+
+
+// GERAL
+.nocallout{
+    -webkit-touch-callout: none;
+}
+
+.invisible{
+    visibility: hidden;
+}
+
+.hidden{
+    display: none;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body{
+    height: 100%;
+}
+
+// 768px = 48.000em
+body{
+    @include fontfamily($bmwFont);
+    @include transition-property(background-color);
+    @include transition-duration(.5s);
+    background-color: black;
+    &.bodyWhite{
+        background-color: white;
+    }
+
+    img.logo{
+        position: absolute;
+        top: 2em;
+        left: 0;
+        z-index: 110;
+    }
+
+    div.wrapper{
+        overflow: hidden;
+        margin: 0 auto;
+        width: 48em;
+        height: 100%;
+        position: relative;
+
+        div.contentBlack{
+            // overflow: hidden;
+            position: relative;
+            height: 100%;
+
+            .contentStart{
+                width: 48em;
+                height: 100%;
+                background-color: black;
+                background-image: url('assets/partida.jpg');
+                background-repeat: no-repeat;
+                background-position: 50% 50%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            .contentStartRed{
+                width: 48em;
+                height: 100%;
+                background-color: transparent;
+                background-image: url('assets/partidaRed.png');
+                background-repeat: no-repeat;
+                background-position: 50% 50%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            .handler{
+                width: 6.250em;
+                height: 6.250em;
+                overflow: hidden;
+                display: block;
+                background-color: transparent;
+                position: absolute;
+                margin: -5em 0 0 -3em;
+                top: 50%;
+                left: 50%;
+                cursor: pointer;
+                @include border-radius(50em);
+            }
+
+            .txt1,
+            .txt2{
+                font-size: 1.8em;
+                font-weight: bold;
+                position: absolute;
+                bottom: 4em;
+                color: white;
+                min-width: 46em;
+            }
+
+            .txt2{
+                bottom: 2.5em;
+            }
+        }
+
+        div.contentWhite{
+            // overflow: hidden;
+            position: relative;
+            top: 0;
+            left: 0;
+            height: 100%;
+            .contentCarro{
+                position: relative;
+                z-index: 100;
+                width: 48em;
+                height: 650px;
+                background-image: url('assets/carroSerraVertical.jpg');
+                background-repeat: no-repeat;
+                background-position: 50% 50%;
+                background-size: 200% 200%;
+                @include opacity(0);
+                @include transition-property(all);
+                @include transition-duration(.5s);
+                &.contentCarroOriginal{
+                    @include opacity(1);
+                    background-size: 100% 100%;
+                }
+            }
+            ul{
+                overflow: hidden;
+                min-height: 75px;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                position: relative;
+                z-index: 99;
+                top: 1px;
+                display: block;
+                li{
+                    $currHeight: (76px * 768px) / 1024px;
+                    position: absolute;
+                    display: block;
+                    top: -100%;
+                    &.img01{
+                        left: 0;
+                        img{ width: auto; height: $currHeight; }
+                    }
+                    &.img02{
+                        left: 141px;
+                        img{ width: auto; height: $currHeight; }
+                    }
+                    &.img03{
+                        left: 267px;
+                        img{ width: auto; height: $currHeight; }
+                    }
+                    &.img04{
+                        left: 392px;
+                        img{ width: auto; height: $currHeight; }
+                    }
+                    &.img05{
+                        left: 516px;
+                        img{ width: auto; height: $currHeight; }
+                    }
+                    &.img06{
+                        left: 642px;
+                        img{ width: auto; height: $currHeight; }
+                    }
+                }
+            }
+            .contentTxt{
+                $gray: #4d4e50;
+                //overflow: hidden;
+                position: relative;
+                padding: 1em;
+                .txt{
+                    padding-bottom: 15px;
+                }
+                .txt3{
+                    font-size: 1.3em;
+                    font-weight: bold;
+                    color: $gray;
+                    span{
+                        position: relative;
+                    }
+                }
+                .txt4{
+                    overflow: hidden;
+                    font-size: .8em;
+                    font-weight: bold;
+                    color: $gray;
+                }
+                .txt5{
+                    font-size: 1.3em;
+                    font-weight: bold;
+                    color: black;
+                    line-height: .8em;
+                    span{
+                        font-size: .7em;
+                        font-weight: normal;
+                    }
+                }
+                .txt6{
+                    position: absolute;
+                    bottom: 0;
+                    right: 1em;
+                    font-size: .8em;
+                    font-weight: bold;
+                    color: $gray;
+                    background-image: url('assets/pedestre.png');
+                    background-repeat: no-repeat;
+                    background-position: 100% 0%;
+                    padding: 1.5em 2.5em 1em 2em;
+                }
+            }
+        }
+    }
+}
+
+// 1024px = 64.000em
+@media screen and (min-width: 64.000em) {
+    body{
+        div.wrapper{
+            width: 64em;
+            div.contentBlack{
+                .contentStart{
+                    background-color: black;
+                    width: 64em;
+                }
+
+                .contentStartRed{
+                    width: 64em;
+                }
+                .txt1,
+                .txt2{
+                    font-size: 2em;
+                    min-width: 62em;
+                }
+            }
+
+            div.contentWhite{
+                .contentCarro{
+                    background-image: url('assets/carroSerraHorizontal.jpg');
+                    width: 64em;
+                    height: 420px;
+                }
+                ul{
+                    li{
+                         $currHeight: 75px;
+                        &.img01{
+                            left: 0;
+                            img{ width: auto; height: $currHeight; }
+                        }
+                        &.img02{
+                            left: 185px;
+                            img{ width: auto; height: $currHeight; }
+                        }
+                        &.img03{
+                            left: 350px;
+                            img{ width: auto; height: $currHeight; }
+                        }
+                        &.img04{
+                            left: 514px;
+                            img{ width: auto; height: $currHeight; }
+                        }
+                        &.img05{
+                            left: 677px;
+                            img{ width: auto; height: $currHeight; }
+                        }
+                        &.img06{
+                            left: 842px;
+                            img{ width: auto; height: $currHeight; }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
