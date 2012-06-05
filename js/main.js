@@ -47,6 +47,7 @@ function goChain()
         TweenLite.to(el, .5, {css:{top:"0"}, delay:(idx/10), ease:Power2.easeOut});
     });
     $('#contentCarro').addClass('contentCarroOriginal');
+    $('#bmwCar').addClass('carroGo');
 
     $(cw).find('.contentTxt').removeClass('hidden');
 
@@ -80,4 +81,3 @@ anima(txt1,{left:"100%"},{left:"1em"},1,1);
 anima(txt2,{left:"100%"},{left:"1em"},1,1.9);
 
 obj.init('startEngine',doSome);
-

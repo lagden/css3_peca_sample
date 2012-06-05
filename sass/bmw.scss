@@ -11,7 +11,6 @@
 // Animation
 @import "stuff/keyframes";
 
-
 // Font Face
 $bmwFont: "7405_-_bmwgroup-bold";
 @include fontface($bmwFont);
@@ -58,14 +57,14 @@ body{
     }
 
     div.wrapper{
-        overflow: hidden;
+        //overflow: hidden;
         margin: 0 auto;
         width: 48em;
         height: 100%;
         position: relative;
 
         div.contentBlack{
-            // overflow: hidden;
+            overflow: hidden;
             position: relative;
             height: 100%;
 
@@ -123,7 +122,6 @@ body{
         }
 
         div.contentWhite{
-            // overflow: hidden;
             position: relative;
             top: 0;
             left: 0;
@@ -133,7 +131,7 @@ body{
                 z-index: 100;
                 width: 48em;
                 height: 650px;
-                background-image: url('assets/carroSerraVertical.jpg');
+                background-image: url('assets/carroSerraVerticalNoCar.jpg');
                 background-repeat: no-repeat;
                 background-position: 50% 50%;
                 background-size: 200% 200%;
@@ -143,6 +141,24 @@ body{
                 &.contentCarroOriginal{
                     @include opacity(1);
                     background-size: 100% 100%;
+                }
+                img.carro{
+                    position: absolute;
+                    width: 672px;
+                    height: 242px;
+                    top: 228px;
+                    left: -130px;
+                    -webkit-filter: brightness(1);
+                    @include transform(scale(.6));
+                    @include opacity(1);
+                    @include transition-property(all);
+                    @include transition-duration(1s);
+                    &.carroGo{
+                        -webkit-filter: brightness(0);
+                        @include transform(scale(1));
+                        @include opacity(1);
+                        left: 0;
+                    }
                 }
             }
             ul{
@@ -188,7 +204,6 @@ body{
             }
             .contentTxt{
                 $gray: #4d4e50;
-                //overflow: hidden;
                 position: relative;
                 padding: 1em;
                 .txt{
@@ -258,9 +273,16 @@ body{
 
             div.contentWhite{
                 .contentCarro{
-                    background-image: url('assets/carroSerraHorizontal.jpg');
+                    background-image: url('assets/carroSerraHorizontalNoCar.jpg');
                     width: 64em;
                     height: 420px;
+                    img.carro{
+                        top: 118px;
+                        left: 10px;
+                        &.carroGo{
+                            left: 150px;
+                        }
+                    }
                 }
                 ul{
                     li{
