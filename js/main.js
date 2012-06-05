@@ -57,9 +57,11 @@ function goChain()
     anima($('#txt3A'),{opacity:0, bottom:"-200px"},{opacity:1, bottom:"0"},.5,1);
     anima($('#txt3B'),{opacity:0, bottom:"-200px"},{opacity:1, bottom:"0"},.5,1.5);
 
-    anima($('#txt4'),{opacity:0},{opacity:1},1,2);
-    anima($('#txt5'),{opacity:0},{opacity:1},1,3);
-    anima($('#txt6'),{opacity:0},{opacity:1},1,3);
+    anima($('#txtA'),{opacity:0},{opacity:1},.5,2.5);
+    anima($('#txtB'),{opacity:0},{opacity:1},.5,3);
+    anima($('#txtC'),{opacity:0},{opacity:1},.5,3.5);
+    anima($('#txtD'),{opacity:0},{opacity:1},.5,4);
+    anima($('#txtE'),{opacity:0},{opacity:1},.5,4.5);
 }
 
 // Animation

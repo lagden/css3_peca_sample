@@ -13,7 +13,10 @@
 
 // Font Face
 $bmwFont: "7405_-_bmwgroup-bold";
-@include fontface($bmwFont);
+$bmwFontReg: "7408_-_bmwtypev2regular";
+$bmwFontBold: "7407_-_bmwtypev2bold-regular";
+@include fontface($bmwFontReg);
+@include fontface($bmwFontBold);
 
 
 // GERAL
@@ -41,7 +44,7 @@ body{
 
 // 768px = 48.000em
 body{
-    @include fontfamily($bmwFont);
+    @include fontfamily($bmwFontReg);
     @include transition-property(background-color);
     @include transition-duration(.5s);
     background-color: black;
@@ -108,8 +111,8 @@ body{
 
             .txt1,
             .txt2{
+                @include fontfamily($bmwFontBold);
                 font-size: 1.8em;
-                font-weight: bold;
                 position: absolute;
                 bottom: 4em;
                 color: white;
@@ -130,8 +133,9 @@ body{
                 position: relative;
                 z-index: 100;
                 width: 48em;
-                height: 650px;
-                background-image: url('assets/carroSerraVerticalNoCar.jpg');
+                // height: 650px;
+                height: 550px;
+                background-image: url('assets/carroSerraVerticalNoCarN.jpg');
                 background-repeat: no-repeat;
                 background-position: 50% 50%;
                 background-size: 200% 200%;
@@ -162,8 +166,9 @@ body{
                 }
             }
             ul{
+                $currHeight: (76px * 768px) / 1024px;
                 overflow: hidden;
-                min-height: 75px;
+                min-height: $currHeight;
                 margin: 0;
                 padding: 0;
                 list-style: none;
@@ -172,7 +177,6 @@ body{
                 top: 1px;
                 display: block;
                 li{
-                    $currHeight: (76px * 768px) / 1024px;
                     position: absolute;
                     display: block;
                     top: -100%;
@@ -202,35 +206,39 @@ body{
                     }
                 }
             }
+
             .contentTxt{
-                $gray: #4d4e50;
+                $gray: #4c4d4f;
                 position: relative;
                 padding: 1em;
                 .txt{
-                    padding-bottom: 15px;
+                    padding-bottom: 20px;
                 }
                 .txt3{
-                    font-size: 1.3em;
-                    font-weight: bold;
+                    @include fontfamily($bmwFontBold);
+                    font-size: 1.8em;
                     color: $gray;
                     span{
                         position: relative;
                     }
                 }
                 .txt4{
-                    overflow: hidden;
-                    font-size: .8em;
-                    font-weight: bold;
+                    font-size: .65em;
                     color: $gray;
                 }
-                .txt5{
-                    font-size: 1.3em;
-                    font-weight: bold;
-                    color: black;
-                    line-height: .8em;
+                .txtMedium{
+                    @include fontfamily($bmwFontBold);
+                    font-size: 1em;
+                    color: $gray;
+                    &.black{
+                        color: black;
+                    }
+                    &.line{
+                        line-height: .9em;
+                    }
                     span{
                         font-size: .7em;
-                        font-weight: normal;
+                        line-height: .9em;
                     }
                 }
                 .txt6{
@@ -273,9 +281,9 @@ body{
 
             div.contentWhite{
                 .contentCarro{
-                    background-image: url('assets/carroSerraHorizontalNoCar.jpg');
+                    background-image: url('assets/carroSerraHorizontalNoCarN.jpg');
                     width: 64em;
-                    height: 420px;
+                    height: 370px;
                     img.carro{
                         top: 118px;
                         left: 10px;
@@ -286,36 +294,45 @@ body{
                 }
                 ul{
                     li{
-                         $currHeight: 75px;
-                        &.img01{
-                            left: 0;
-                            img{ width: auto; height: $currHeight; }
-                        }
-                        &.img02{
-                            left: 185px;
-                            img{ width: auto; height: $currHeight; }
-                        }
-                        &.img03{
-                            left: 350px;
-                            img{ width: auto; height: $currHeight; }
-                        }
-                        &.img04{
-                            left: 514px;
-                            img{ width: auto; height: $currHeight; }
-                        }
-                        &.img05{
-                            left: 677px;
-                            img{ width: auto; height: $currHeight; }
-                        }
-                        &.img06{
-                            left: 842px;
-                            img{ width: auto; height: $currHeight; }
-                        }
+                       $currHeight: 75px;
+                       &.img01{
+                        left: 0;
+                        img{ width: auto; height: $currHeight; }
                     }
+                    &.img02{
+                        left: 185px;
+                        img{ width: auto; height: $currHeight; }
+                    }
+                    &.img03{
+                        left: 350px;
+                        img{ width: auto; height: $currHeight; }
+                    }
+                    &.img04{
+                        left: 514px;
+                        img{ width: auto; height: $currHeight; }
+                    }
+                    &.img05{
+                        left: 677px;
+                        img{ width: auto; height: $currHeight; }
+                    }
+                    &.img06{
+                        left: 842px;
+                        img{ width: auto; height: $currHeight; }
+                    }
+                }
+            }
+
+            .contentTxt{
+                .txt{
+                    padding-bottom: 15px;
+                }
+                .txtMedium{
+                    font-size: .9em;
                 }
             }
         }
     }
+}
 }
 
 
